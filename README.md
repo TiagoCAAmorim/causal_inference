@@ -11,5 +11,3 @@ R Code and: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910
 ### Course Slides (Portuguese)
 
 https://ctruciosm.github.io/MI628
-
-###
