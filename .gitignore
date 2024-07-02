@@ -162,3 +162,10 @@ cython_debug/
 ~$*.*
 
 no_sync/
+
+*.aux
+*.bbl
+*.out
+*.spl
+*.gz
+_*.pdf
