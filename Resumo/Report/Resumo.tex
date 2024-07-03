@@ -190,7 +190,7 @@
 % \end{highlights}
 
 \begin{keyword}
-    Inferência Causal \sep Controle Negativo
+    Inferência Causal \sep Ignorabilidade \sep Estudos Randomizados \sep Estudos Observacionais \sep Controle Negativo
 %% keywords here, in the form: keyword \sep keyword
 
 %% PACS codes here, in the form: \PACS code \sep code
@@ -209,19 +209,19 @@
 
 \section{\textit{Causal Inference in the Social Sciences}}
 
-    Este artigo discute diversos assuntos ligados à avaliação de inferência causal. Será dado maior enfoque às novas técnicas e discussões trazidas pelo autor no lugar de descrever as metodologias já vistas durante a disciplina MI628: Inferência Causal.
+    Este artigo discute diversos assuntos ligados à avaliação de inferência causal. Será dado maior enfoque às novas técnicas e discussões trazidas pelo autor no lugar de descrever em detalhes metodologias já vistas durante a disciplina MI628: Inferência Causal.
 
     \subsection{Estudos Experimentais Randomizados}
 
-    O autor cita que estudos experimentais randomizados surgem nos anos de 1920, com Fisher e Neyman. Apesar destas ferramentas ainda serem utilizadas, novas ferramentas foram desenvolvidas. O autor cita que em geral o objetivo de um estudo de inferência causal está mais ligado ao resultado médio do tratamento (visão \textit{neymaniana}) e sua magnitude.
+    O autor cita que a análise de estudos experimentais randomizados surge nos anos de 1920, com Fisher e Neyman. Apesar destas ferramentas ainda serem utilizadas atualmente, novas ferramentas foram desenvolvidas. O autor cita que em geral o objetivo de um estudo de inferência causal está mais ligado ao resultado médio do tratamento (visão \textit{neymaniana}) e sua magnitude.
 
-    A técnica de \textbf{experimentos adaptativos}\footnote{Tradução livre de \textit{adaptative experiments}.} foi desenvolvida para tratar de cenários em que existe uma resposta rápida ao tratamento, existem diferentes tratamentos disponíveis, a atribuição das unidades é sequencial e cujo o objetivo é descobrir o \textit{melhor} tratamento, e não a magnitude do seu efeito. O autor dá como exemplo a avaliação de qual é a melhor progaganda a ser veiculada online.
+    A técnica de \textbf{experimentos adaptativos}\footnote{Tradução livre de \textit{adaptative experiments}.} foi desenvolvida para tratar de cenários em que existe uma resposta rápida ao tratamento, existem diferentes tratamentos disponíveis, a atribuição das unidades é sequencial e cujo objetivo é descobrir o \textit{melhor} tratamento, e não a magnitude do seu efeito. O autor dá como exemplo a avaliação de qual é a melhor progaganda a ser veiculada online.
 
-    Em um estudo tradicional as unidades seriam alocadas de forma igual entre os diferentes tratamentos. São apresentadas duas técnicas de experimentos adaptativos que recalculam a probabilidade de atribuição das unidades aos tratamentos, em função dos resultados alcançados até determinado momento. Uma técnica usa a probabilidade posterior de determinado tratamento ser o melhor como peso na sua atribuição. A segunda técnica usa o limite superior dos intervalos de confiança do sucesso de um tratamento: \textbf{UCB} (\textit{upper confidence bounds}). A próxima unidade é atribuída o tratamento com o maior UCB. Em ambas abordagens é preciso cuidar do balanço entre exploração e explotação.
+    Em um estudo tradicional as unidades seriam alocadas de forma igual entre os diferentes tratamentos. São apresentadas duas técnicas de experimentos adaptativos que recalculam a probabilidade de atribuição das unidades aos tratamentos, em função dos resultados alcançados até determinado momento. Uma técnica usa a probabilidade posterior de determinado tratamento ser o melhor como peso na sua atribuição. A segunda técnica usa o limite superior dos intervalos de confiança do sucesso de um tratamento: \textbf{UCB} (\textit{upper confidence bounds}). A próxima unidade é atribuída ao tratamento com o maior UCB. Em ambas abordagens é preciso cuidar do balanço entre exploração e explotação.
 
-    Problemas citados pelo autor: viés de inferência ao usar média dos resultados como estimador da esperança dos resultados, efeito de covariáveis na probabilidade de atribuição, respostas que variam com o tempo (estocacidade ou sazonalidade).
+    Problemas citados pelo autor são viés de inferência ao usar média dos resultados como estimador da esperança dos resultados, efeito de covariáveis na probabilidade de atribuição e dificuldade com respostas que variam com o tempo (estocacidade ou sazonalidade).
 
-    Uma outra situação que precisa de tratamento especial é quando as condições de não-interferência e consistência (valor estável de tratamento da unidade ou SUTVA\footnote{Do inglês: \textit{Stable Unit Treatment Value Assumption}.}) não são atendidas. Quando existe a possibilidade de transbordamento ou interferência entre as unidades, a estratégia é definida em função do tipo de transbordamento. Uma estratégia é particionar a população em subgrupos, de forma a limitar os efeitos de transbordamento ao subgrupo. Outra estratégia é com o uso de grafos bipartidos e clusterização aleatória. O último exemplo dado pelo autor é quando duas ou mais populações estão associadas a tratamentos, e as variações de atribuição dos tratamentos nos pares (ou triplas, ...) de indivíduos ajuda a estimar os efeitos de transbordamento.
+    Uma outra situação que precisa de tratamento especial é quando as condições de não-interferência e consistência (valor estável de tratamento da unidade ou SUTVA\footnote{Do inglês: \textit{Stable Unit Treatment Value Assumption}.}) não são atendidas. Quando existe a possibilidade de transbordamento ou interferência entre as unidades, a estratégia é definida em função do tipo de transbordamento. Uma estratégia é particionar a população em subgrupos, de forma a limitar os efeitos de transbordamento ao subgrupo. Outra estratégia é com o uso de grafos bipartidos e clusterização aleatória. O último exemplo dado pelo autor é quando duas ou mais populações estão associadas a tratamentos, e as variações de atribuição dos tratamentos nos pares (ou triplas, ...) de indivíduos ajudam a estimar os efeitos de transbordamento.
 
     \subsection{Estudos Observacionais sob Ignorabilidade}
 
@@ -229,10 +229,10 @@
 
     A estimativa do efeito médio do tratamento sob ignorabilidade pode ser feita com diferentes abordagens (com comentários do autor):
     \begin{itemize}
-        \item \textit{Matching}: Estimador intuitivo, mas necessita de grande número de \textit{matches} e sofre quando existe um número grande de covariáveis.
-        \item Regressão dos estimadores: Pode ser difícil de construir bons estimadores quando a dimensão das covariáveis é muito grande.
-        \item Estimadores com o \textit{propensity score}: Pode ser utilizado como uma covariável escalar junto com \textit{matching} ou regressão, ou usar seu inverso como peso na estimativa do efeito causal médio.
-        \item Estimadores duplamente robustos: É a classe de estimadores atualmente sugerida na literatura, pois tem boas propriedades mesmo que os estimadores tenham baixa convergência.
+        \item \textbf{\textit{Matching}}: Estimador intuitivo, mas necessita de significativo número de \textit{matches} e sofre quando existe um número grande de covariáveis.
+        \item \textbf{Regressão dos estimadores}: Pode ser difícil de construir bons estimadores quando a dimensão das covariáveis é muito grande.
+        \item \textbf{Estimadores com o \textit{propensity score}}: Pode ser utilizado como uma covariável escalar junto com \textit{matching} ou regressão, ou usar seu inverso como peso na estimativa do efeito causal médio.
+        \item \textbf{Estimadores duplamente robustos}: É a classe de estimadores atualmente sugerida na literatura, pois tem boas propriedades mesmo que os estimadores tenham baixa convergência.
     \end{itemize}
 
     Violações de sobreposição podem ser contornadas ignorando amostras que estão muito próximas de zero ou um, ou usando $h(x) = e(x)(1-e(x))$ como peso no estimador do efeito causal médio.
@@ -243,23 +243,71 @@
 
     \begin{itemize}
         \item Assumir que não existe ignorabilidade e estimar limites para o efeito médio do tratamento. Esta abordagem pode levar a limites muito grandes.
-        \item Assumir ignorabilidade, mas condicional a uma covariável não observada, que tem limitada associação com os resultados potenciais e a atribuição de tratamento.
-        \item x
+        \item Assumir ignorabilidade, mas condicional a uma covariável não observada, que tem limitada associação com os resultados potenciais e a atribuição de tratamento. Esta suposição de limitação é o que leva a restringir os valores possíveis em uma análise de sensibilidade. Uma estratégia sugerida é assumir que o efeito das covariáveis não observadas é menor que o de variáveis observadas.
+        \item Assumir ignorabilidade, mas não limitar a associação entre covariável não observada e resultados potenciais, e limitar as probabilidades de atribuição. A análise de sensibilidade é feita com base nos limites assumidos para as probabilidades de atribuição.
     \end{itemize}
 
     \subsection{Estudos Observacionais sem Ignorabilidade}
 
+    Sem ignorabilidade não é possível descobrir o efeito causal médio, apenas limites em alguns casos. Diferentes ferramentas foram desenvolvidas assumindo algum tipo de informação adicional. Esta informação adicional pode ser uma variável adicional com uma estrutura causal conhecida, ou hipóteses adicionais quanto ao mecanismo de atribuição ou a distribuição dos resultados potenciais.
 
+    As \textbf{variáveis instrumentais} surgiram nos anos de 1930, como forma de atacar problemas em que pode existir uma covariável não medida que se correlaciona tanto com a atribuição como os resultados. Neste cenário não é possível estimar o efeito causal diretamente entre tratamento e resultados.
+
+    Uma variável instrumental é uma variável que se assume ter efeito direto no tratamento, mas não no resultado (Exemplo na Figura \ref{fig:diagrama_variavel_instrumental}). Se não existir covariável não medida que correlacione a variável instrumental com o tratamento ou com o resultado, é possível estimar o efeito causal médio do instrumento no resultado.
+
+    Para estimar o efeito do tratamento no resultado é preciso assumir monotonicidade, i.e., que o efeito causal do instrumento no tratamento é monotônico. Com estas suposições é possível estimar o efeito causal para a subpopulação em que uma mudança no instrumento de 0 para 1 leva a mudar de controle para tratamento, chamado de LATE\footnote{De \textit{local average treatment effect}.}.
+
+    O autor argumenta que o LATE normalmente não é o resultado de interesse, mas é a única subpopulação na qual é possível estimar o efeito causal médio sem assumir hipóteses fortes. Ele também menciona que a monotonicidade é possível de ser encontrada em diferentes aplicações. Uma dificuldade é quando o efeito da variável instrumental no tratamento é limitado, levando a estimadores ruins.
+
+    \begin{figure}[hbt!]
+        % \includegraphics[width=0.95\columnwidth]{A_LabelCount.png}
+        \centering
+        \begin{tikzpicture}[node distance={15mm}, thick, main/.style = {draw, circle}]
+            \node[main] (1) {$D$};
+            \node[main] (2) [right of=1] {$Y$};
+            \node[main] (3) [gray, above of=1] {$U$};
+            \node[main] (4) [left of=1] {$Z$};
+            \node[main] (5) [gray, dashed, above of=4] {$U'$};
+            \draw[->] (1) -- (2);
+            \draw[gray, ->] (3) -- (1);
+            \draw[gray, ->] (3) -- (2);
+            \draw[->] (4) -- (1);
+            \draw[gray, dashed, ->] (5) -- (4);
+            \draw (5)[gray, dashed, ->] to [out=45,in=105,looseness=1.3] (2);
+        \end{tikzpicture}
+        \caption{A atribuição de tratamento \textbf{Z} funciona como uma variável instrumental do tratamento recebido \textbf{D}, pois não tem efeito direto no resultado \textbf{Y}. A existência de variável não medida que correlaciona \textbf{Z} com \textbf{Y} (elementos tracejados) invalida o uso de \textbf{Z} como variável instrumental. (Adapatado de \cite{imbens2024causal})}
+        \label{fig:diagrama_variavel_instrumental}
+    \end{figure}
+
+    No método das \textbf{diferenças em diferenças} original a análise parte dos resultados de unidades de tratamento e controle em dois períodos diferentes: antes do tratamento (ambos grupos não receberam tratamento) e depois do tratamento (apenas um grupo recebe o tratamento). É assumido um efeito aditivo fixo entre os instantes de tempo. Esta ideia foi extendida para trabalhar com múltiplos períodos ou com estudos em que as unidades passam ao grupo de tratamento em períodos distintos (\textit{stepped wedge design}).
+
+    No cenário de uma única unidade no grupo de tratamento, a ideia de \textbf{controle sintético} é de aproximar o contrafatual da unidade de tratamento por uma combinação convexa das unidades de controle. Os pesos são definidos de forma a melhor aproximar a unidade de tratamento nos tempos anteriores ao tratamento.
+
+    Este método já foi extendido para aceitar o controle sintético fora da envoltória convexa das unidades de controle: alguns pesos negativos ou aceitar um fator constante na função objetivo dos pesos. Uma abordagem mais robusta associa diferenças em diferenças com controle sintético, adicionando termos que põe mais ênfase em tempos mais similares ao em que ocorre o tratamento.
+
+    O último método citado para avaliar efeito causal onde não é possível assumir ignorabilidade é a \textbf{regressão descontinuada}, que começou nas ciências sociais nos anos 1960, e ganhou maior notoriedade e desenvolvimento a partir dos anos 2000. Neste cenário a atribuição de tratamento é definida por um limite ($c$) de alguma covariável. A descontinuidade \textit{fuzzy} assume que a probabilidade de tratamento não salta de zero para um no limite, mas que existe uma descontinuidade neste ponto.
+
+    O estimador mais comum é baseado em regressão linear nas vizinhanças de $c$. Segundo o autor, estudos mais recentes focam em encontrar funções de peso que melhorem a estimativa do efeito causal como a diferença entre médias ponderadas à esquerda e à direita de $c$.
+
+    Uma dificuldade associada a este método é sua limitida validade externa, pois toda a estimativa é feita com as unidades próximas do limite. No caso \textit{fuzzy} apenas as unidades que estão próximas do limite e que obedecem à separação tratamento-controle são utilizadas\footnote{\textit{Complier subpopulation} no original em inglês.}.
 
     \subsection{Combinação de Estudos Experimentais e Observacionais}
 
+    O autor cita dois exemplos de técnicas que combinam dados experimentais e observacionais.
 
+    A primeira é a de \textbf{substituição}\footnote{Tradução livre de \textit{surrogacy}.}, em que se deseja tomar decisões associadas a efeitos de longo-prazo, a partir de medidas de curto-prazo. A ideia é combinar os resultados de curto-prazo (substitutos) em um preditor de resultados de longo-prazo. A relação entre tratamento e os substitutos viria de um estudo experimental, enquanto que a relação entre os substitutos e o resultado de interesse viria de um estudo observacional.
+
+    A principal hipótese é que todas as possíveis correlações causais entre o tratamento e o resultado de interesse passam por ao menos um dos substitutos. Desta forma não há efeito causal direto entre o tratamento e a resposta de interesse.
+
+    A segunda técnica parte do pressuposto de que no estudo observacional são observados tratamento, resultado secundário e resultado principal, e que no estudo experimental apenas tratamento e resultado secundário são observados. É assumido que existe uma variável de confusão não medida, mas que é a mesma para os resultados secundário e principal.
+
+    Com estas hipóteses é possível extrair a covariável não medida dos dados observacionais e experimentais entre tratamento e resposta secundária. E com este resultado é feito o ajuste da estimativa do efeito causal médio do tratamento na resposta principal no estudo observacional.
 
 \section{\textit{Negative Controls: A Tool for Detecting Confounding and Bias in Observational Studies}}
 
-    É apresentado o conceito de controle negativo. Este mecanismo é utilizado em estudos de biologia experimental, e os autores argumentam que pode ser adapatado para experimentos observacionais e de outras áreas. Associações não-causais podem ser causadas por erro de medição, confusão e viés de seleção de indivíduos para a análise. O uso de controles negativos ajuda a verificar o risco de interpretação não-causal como causal.
+    É apresentado o conceito de \textbf{controle negativo}. Este mecanismo é utilizado em estudos de biologia experimental, e os autores argumentam que pode ser adapatado para experimentos observacionais e de outras áreas. Associações não-causais podem ser causadas por erro de medição, confusão e viés de seleção de indivíduos para a análise. O uso de controles negativos ajuda a verificar o risco de interpretação não-causal como causal.
 
-    A ideia principal do contole negativo é repetir o experimento que atestou efeito causal, mas de forma que o resultado esperado seja a hipótese nula, i.e., sem efeito causal. Vários controles negativos podem ser necessários, em função dos possíveis efeitos não-causais (variáveis de confusão não medidas). A observação de efeito causal no controle negativo é indicativo de que variáveis não medidas estão influenciando os resultados de interesse. Mecanismos de construção de experimentos de controle negativo citados pelos autores:
+    A ideia principal do contole negativo é repetir o experimento que atestou efeito causal, mas de forma que o resultado esperado seja a hipótese nula, i.e., sem efeito causal. Vários controles negativos podem ser necessários, em função dos possíveis efeitos não-causais (variáveis de confusão não medidas). A observação de efeito causal no controle negativo é indicativo de que variáveis não medidas estão influenciando os resultados de interesse. Os mecanismos de construção de experimentos de controle negativo citados pelos autores são:
 
     \begin{itemize}
         \item Retirar um dos elementos essenciais ao mecanismo em avaliação: Testar hipótese de viés de disponibilidade com perguntas \emph{placebo}, que já se sabe não ter relação com o mecanismo avaliado, em um questionário sobre alguma doença.
@@ -267,12 +315,11 @@
         \item Testar com condições em que o mecanismo avaliado não funciona: Índice de hospitalizações por quebra de ossos em função de tomar ou não a vacina da gripe.
     \end{itemize}
 
-    Em resumo, o propósito do controle negativo é de testar condições em que o mecanismo avaliado não está ativo, mas que podem sofrer dos mesmos vieses (medidos e não-medidos) do experimento original. Seguindo a Figura \ref{fig:diagrama_confusao}, uma resposta de controle negativo é uma resposta (\textbf{N}) que é influenciada pelos mesmos parâmetros que influenciam o tratamento (\textbf{Z}) e a resposta de interesse (\textbf{Y}). Se as variáveis de confusão não medidas (\textbf{U}) forem as mesmas para os pares \textbf{Z}+\textbf{Y} e \textbf{Z}+\textbf{N}, então \textbf{Y} e \textbf{N} são ditos \textit{U-comparáveis}.
+    Em resumo, o propósito do controle negativo é de testar condições em que o mecanismo avaliado não está ativo, mas que podem sofrer dos mesmos vieses (medidos e não medidos) do experimento original. Seguindo a Figura \ref{fig:diagrama_confusao}, uma resposta de controle negativo é uma resposta (\textbf{N}) que é influenciada pelos mesmos parâmetros que influenciam o tratamento (\textbf{Z}) e a resposta de interesse (\textbf{Y}). Se as variáveis de confusão não medidas (\textbf{U}) forem as mesmas para os pares \textbf{Z}+\textbf{Y} e \textbf{Z}+\textbf{N}, então \textbf{Y} e \textbf{N} são ditos \textit{U-comparáveis}.
 
     Assumindo que esta nova resposta (\textbf{N}) não é influenciada pelo tratamento (\textbf{Z}), e que a resposta de interesse (\textbf{Y}) e a nova resposta (\textbf{N}) são \textit{U-comparáveis}, se não é observado efeito causal de \textbf{Z} em \textbf{N}, então podemos afirmar que \textbf{provavelmente} um efeito causal observado de \textbf{Z} em \textbf{Y} não é resultado de um viés desconhecido. Segundo os autores, na prática não é possível tecer uma afirmação estrita sobre a causalidade de \textbf{Z} em \textbf{Y} porque em geral \textbf{Y} e \textbf{N} são apenas aproximadamente \textit{U-comparáveis}.
 
     \begin{figure}[hbt!]
-        % \includegraphics[width=0.95\columnwidth]{A_LabelCount.png}
         \centering
         \begin{tikzpicture}[node distance={15mm}, thick, main/.style = {draw, circle}]
             \node[main] (1) {$Z$};
@@ -289,16 +336,13 @@
             \draw[red, ->] (2) -- (5);
             \draw[red, ->] (4) -- (5);
         \end{tikzpicture}
-        \caption{Diagrama de causalidade: efeito do tratamento \textbf{Z} no resultado \textbf{Y}, com as variáveis de confusão \textbf{X} (medida) e \textbf{U} (não medida). A linha tracejada entre \textbf{X} e \textbf{U} indica que um pode influenciar o outro. Neste exemplo os resultados \textbf{N} e \textbf{Y} são ditos U-comparáveis. (Adapatado de \cite{lipsitch2010negative})}
+        \caption{Efeito do tratamento \textbf{Z} no resultado \textbf{Y}, com as variáveis de confusão \textbf{X} (medida) e \textbf{U} (não medida). A linha tracejada entre \textbf{X} e \textbf{U} indica que um pode influenciar o outro. Neste exemplo os resultados \textbf{N} e \textbf{Y} são ditos U-comparáveis. (Adapatado de \cite{lipsitch2010negative})}
         \label{fig:diagrama_confusao}
     \end{figure}
 
     A mesma lógica pode ser aplicada para encontrar um tratamento de controle negativo (\textbf{B}). Se as variáveis de confusão não medidas (\textbf{U}) forem as mesmas para os pares \textbf{Z}+\textbf{Y} e \textbf{B}+\textbf{Y}, então \textbf{Z} e \textbf{B} são ditos \textit{U-comparáveis}. Novamente, se não existe causalidade de \textbf{B} em \textbf{Y}, então uma causalidade observada de \textbf{Z} em \textbf{Y} provavelmente não é efeito de um viés desconhecido.
 
     Os autores argumentam que é uma boa prática usar vários controles negativos para ajudar na validação de um estudo que apontou causalidade, e que conhecimento do assunto objeto do estudo é crucial para fazer boas escolhas de controles negativos.
-
-\section{Discussão}
-
 
 % \appendix
 
